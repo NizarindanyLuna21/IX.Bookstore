@@ -1,0 +1,224 @@
+:root {
+    --FuenteTitulos: "PT Sans", sans-serif;
+    --FuenteParrafos: "Open Sans", sans-serif;
+
+    --primary: #5B4B8A;
+    --secondary: #E9E7F3;
+    --coral: #ff6e6c;
+    --white: #FFF;
+    --mainText: #2E2A3B;
+    --card: #e2daeb;
+    --back: #f4effc;
+    --purpleBack:#301e4e;
+    --purpleTag: #4c346b;
+}
+html {
+    box-sizing: border-box;     /* El ancho y alto incluyen el contenido, padding y borde. */
+    font-size: 62.5%;   /* 10px = 1rem*/
+}
+*,*::before,*::after {
+    box-sizing: inherit;    /*Hace que el elemento herede el modo de cálculo de tamaño de su padre*/
+}
+/* Globales */
+body {
+    font-family: var(--FuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+.container {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: var(--coral);
+}
+.navegacion-principal > a:hover{
+    font-weight: bold;
+    color: var(--white);
+    background-color: #5B4B8A;
+    padding: 0 2rem;
+    transform: scale(1.05);  /*Crecimiento(Los demas elementos no se mueven)*/
+}
+h1,h2,h3 {
+    font-family: var(--FuenteTitulos);
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.4rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+.lighter {
+    font-weight: lighter;
+}
+.pointer {
+    cursor: pointer;
+}
+
+/* Header*/
+.title {
+    color: var(--mainText);
+}
+span {
+    color: var(--coral);
+}
+.span {
+    color: var(--secondary);
+}
+
+/* Nav */
+.navegacion-principal {
+    display: flex;
+    justify-content: space-around;
+}
+.material-symbols-outlined {
+    font-size: 2rem;
+    color: var(--coral);
+}
+.material-symbols-outlined:hover {
+    color: var(--primary);
+}
+/* Seccion Buscador */
+.buscador-principal {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="search"] {
+    width: 80rem;
+    padding: 1.5rem;
+    border: none;
+}
+input[type="search"]:focus {
+    outline: none;
+}
+.search, input[type="search"] {
+    background-color: var(--purpleBack);
+    border-radius: 3rem;
+    color: #e2daeb;
+}
+a .search, input::placeholder{
+    color: var(--secondary);
+}
+.portada {
+    background-image: url("../img/portada.avif");
+    height: 60rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left top;
+    margin: 2rem 0;
+}
+.color {
+    background-color: #301e4eCC;
+    width: 100%;
+    height: 100%;
+}
+input::placeholder {
+    padding-left: 1rem;
+}
+.contenedor-lupa {
+    width: 5rem;
+}
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Seccion Books Month*/
+.seccion-principal {
+    margin-top: 10rem;
+}
+.encabezado-section {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10rem;
+}
+.titulo-section {
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+.texto-section {
+    margin-left: 10rem;
+    font-size: 1.5rem;
+}
+.titulo-section, .texto-section {
+    line-height: 1.6;
+}
+.text-card {
+    line-height: 1.3;
+}
+#libros-top {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 3rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+.img-card {
+    min-width: 100%;
+    height: 30rem;
+    border-radius: 1rem;
+    
+}
+.span-precio {
+    color: #9a92a7;
+}
+
+/* Seccion Generos */
+.seccion-generos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 10rem;
+}
+.seccion-generos div {
+    text-align: center;
+    color: var(--white);
+    border-radius: 1rem;
+    line-height: .5;
+}
+.seccion-generos div h1 {
+    text-transform: uppercase;
+}
+.genero-5 {
+    grid-column: 3/4;
+    background-color: #8A6FB3;
+}
+.genero-2 {
+    grid-row: 1/3;
+    grid-column: 2/3;
+    background-color: #E6C38A;
+}
+.genero-1 {
+    background-color: #1F6B4E;
+}
+.genero-3 {
+    background-color: #1E7A63;
+}
+.genero-4 {
+    background-color: #E2574C;
+}
+.seccion-generos div:not(.genero-2){
+    height: 22rem;
+}
+.seccion-generos div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
