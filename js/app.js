@@ -4,12 +4,13 @@ const carrito = document.querySelector('#carrito')
 const favorito = document.querySelector('#favorito')
 const buscador = document.querySelector('input[type="search"]')
 const librosTop = document.querySelector('#libros-top')
+const librosRecomendados = document.querySelector('#libros-recomendados')
 
 document.addEventListener('DOMContentLoaded', () => {
 
     obtenerLibros();
+    obtenerLibrosRec();
     mostrarLibrosMain();
-
 })
 
 // Eventos
@@ -21,43 +22,45 @@ function addEventListeners() {
 
 function obtenerLibros() {
     const url = 'https://openlibrary.org/search.json?q=book';
+    const contenedor = librosTop;
 
     fetch(url) 
-        .then(respuesta => {
-            return respuesta.json();
-        })
-        .then(datos => {
-            mostrarLibrosMain(datos.docs)
+        .then(respuesta => { return respuesta.json(); })
+        .then(datos => { mostrarLibrosMain(datos.docs,contenedor) })
+        .catch(error => {console.log(error)})
+}
+
+function obtenerLibrosRec() {
+    const url = 'https://openlibrary.org/search.json?q=brandon+sanderson';
+    const contenedor = librosRecomendados;
+
+    fetch(url) 
+        .then(respuesta => { return respuesta.json(); })
+        .then(datos => { 
             console.log(datos.docs)
-        })
+            mostrarLibrosMain(datos.docs, contenedor) })
         .catch(error => {console.log(error)})
     
 }
 
-function mostrarLibrosMain(datos){
-    
+function mostrarLibrosMain(datos,contenedor) {
     datos.forEach((dato, index)=> {
-        const contenedorHTML = document.createElement('div')
+        const contenedorRec = document.createElement('div')
         const {title, author_name,cover_i} = dato;
-        contenedorHTML.classList.add = 'books-month';
+        contenedorRec.classList.add ('books-month');
 
         if(index < 5) {
-            contenedorHTML.innerHTML = `
+            contenedorRec.innerHTML = `
                 <img class="img-card" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg">
                 <div class="text-card">
                     <h3>${title}</h3>
-                    <p>${author_name}<p>
+                    <p>${author_name}</p>
                     <p>$24.99<span class="span-precio"> $56.99</span></p>
-                <div>
+                </div>
                 
             `;
-            librosTop.appendChild(contenedorHTML)
+            contenedor.appendChild(contenedorRec)
         }
 
     })
-
 }
-
-
-// <img src="https://covers.openlibrary.org/b/isbn/9780385533225-S.jpg" />
-// https://covers.openlibrary.org/b/$key/$value-$size.jpg
