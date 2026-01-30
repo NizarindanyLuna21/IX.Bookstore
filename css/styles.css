@@ -80,6 +80,7 @@ span {
 }
 
 /* Nav */
+
 .navegacion-principal {
     display: flex;
     justify-content: space-around;
@@ -91,6 +92,21 @@ span {
 .material-symbols-outlined:hover {
     color: var(--primary);
 }
+@media (max-width: 940px) {
+    .navegacion-principal {
+        flex-direction: column;
+        align-items: center;        
+    }
+    .navegacion-principal > a {
+        font-size: 1.8rem;
+    }
+    .navegacion-principal > a:hover{
+        width: 100%;
+        text-align: center;
+    }
+    
+}
+
 /* Seccion Buscador */
 .buscador-principal {
     height: 100%;
@@ -99,7 +115,7 @@ span {
     align-items: center;
 }
 input[type="search"] {
-    width: 90rem;
+    width: clamp(40rem, 50vw, 90rem);
     padding: 1.5rem;
     border: none;
 }
@@ -108,7 +124,7 @@ input[type="search"]:focus {
 }
 .search, input[type="search"] {
     background-color: var(--purpleBack);
-    border-radius: 3rem;
+    border-radius: 2rem;
     color: #e2daeb;
 }
 a .search, input::placeholder{
@@ -120,7 +136,7 @@ a .search, input::placeholder{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left top;
-    margin: 2rem 0;
+    margin-top: 2rem;
 }
 .color {
     background-color: #301e4eCC;
@@ -141,8 +157,13 @@ input::placeholder {
 }
 
 /* Seccion Books Month*/
+.principal-section {
+    background-color: var(--secondary);
+
+}
 .seccion-principal {
-    margin-top: 20rem;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
 }
 .encabezado-section {
     display: grid;
@@ -161,31 +182,62 @@ input::placeholder {
 .titulo-section, .texto-section {
     line-height: 1.6;
 }
+
+@media (max-width:  900px) {
+    .encabezado-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .seccion-principal {
+        padding-bottom: 0;
+        text-align: center;
+    }
+    .texto-section {
+        margin-right: 10rem;
+        text-align: justify;
+    }
+}
+@media (max-width: 580px) {
+    .titulo-section {
+        font-size: 2.8rem;
+    }
+}
 .text-card {
     line-height: 1.3;
 }
 #libros-top {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     margin-top: 6rem;
     margin-bottom: 20rem;
 }
 .img-card {
-    min-width: 100%;
+    max-width: 100%;
     height: 30rem;
-    border-radius: 1rem;
-    
+    border-radius: .5rem;
 }
+
 .span-precio {
     color: #9a92a7;
 }
 .books-month {
     transition-duration: .3s;   /*Animacion*/
     transition-property: transform background-size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .books-month:hover {
     transform: scale(1.2);
+}
+.books-month .text-card {
+    width: 98%;
+}
+@media (max-width: 768px) {
+    .img-card {
+        width: 50%;
+    }
 }
 
 /* Seccion Generos */
@@ -196,38 +248,53 @@ input::placeholder {
     margin-bottom: 30rem;
     margin-top: 20rem;
 }
-.seccion-generos div {
+.seccion-generos div{
     text-align: center;
-    color: var(--white);
     border-radius: .5rem;
     line-height: .5;
     transition-duration: .3s;   /*Animacion*/
     transition-property: transform background-size;
+    font-weight: bold;
+
+    background-repeat: no-repeat;
+}
+.seccion-generos div:not(.genero-2) {
+    background-position: top 150% center;
+    color: var(--secondary);
+    background-size: 40%;   /*imagen de fondo*/
 }
 .seccion-generos div:hover {
     transform: scale(1.1);
-
 }
 .seccion-generos div h1 {
     text-transform: uppercase;
 }
 .genero-5 {
     grid-column: 3/4;
-    background-color: #4A3573
+    background-color: #4A3573;
+    background-image: url('/img/libro.png');
 }
 .genero-2 {
     grid-row: 1/3;
     grid-column: 2/3;
     background-color: #E6E0F0;
+    background-image: url('/img/libros-de-amor.png');
+    color: var(--mainText);
+
+    background-position: top 105% center;
+    background-size: 80%;   /*imagen de fondo*/
 }
 .genero-1 {
     background-color: #4A3573;
+    background-image: url('/img/novela-policial.png');
 }
 .genero-3 {
     background-color: #2B1B47;
+    background-image: url('/img/hada.png');
 }
 .genero-4 {
     background-color: #2B1B47;
+    background-image: url('/img/androide.png');
 }
 .seccion-generos div:not(.genero-2){
     height: 25rem;
@@ -252,8 +319,32 @@ input::placeholder {
 }
 #libros-recomendados {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
     padding-top: 6rem;
     padding-bottom: 20rem;
+}
+
+/* Seccion Header */
+.contenedor-header {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 5rem;
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+}
+
+.Find-us {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.Find-us a {
+    color: var(--coral);
+}
+.titulo-Find {
+    font-size: 1.8rem;
+}
+.contenido-header p{
+    padding-right: 10rem;
 }
