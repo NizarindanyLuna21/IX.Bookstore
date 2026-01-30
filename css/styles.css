@@ -115,7 +115,7 @@ span {
     align-items: center;
 }
 input[type="search"] {
-    width: clamp(25rem, 50vw, 90rem);
+    width: min(90%, clamp(25rem, 50vw, 90rem));
     padding: 1.5rem;
     border: none;
 }
