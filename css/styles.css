@@ -205,7 +205,7 @@ input::placeholder {
     line-height: 1.6;
 }
 
-@media (max-width:  900px) {
+@media (max-width:  900px) {  /* Tablet */
     .encabezado-section {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -219,12 +219,16 @@ input::placeholder {
         text-align: justify;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 480px) { /* Movil */
     .titulo-section {
         font-size: 2.2rem;
     }
     .texto-section {
         margin: 2rem 3.5rem;
+    }
+    .text-card {
+        padding-bottom: 0;
+        text-align: center;
         font-size: 1.2rem;
     }
 }
@@ -255,7 +259,7 @@ input::placeholder {
     align-items: center;
 }
 .books-month:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .books-month .text-card {
     width: 98%;
@@ -404,6 +408,13 @@ input::placeholder {
     padding-top: 6rem;
     padding-bottom: 20rem;
 }
+@media (max-width: 480px) {
+    .encabezado-recomendado h1 {
+        font-size: 2.5rem;
+        padding-top: 12rem;
+        padding-bottom: 2rem;
+    }
+}
 
 /* Seccion Header */
 .contenedor-header {
@@ -427,4 +438,23 @@ input::placeholder {
 }
 .contenido-header p{
     padding-right: 10rem;
+}
+
+@media (max-width: 480px) {
+    .contenedor-header {
+        display: flex;
+        flex-direction: column;
+    }
+    .titulo-Find, .contenedor-header {
+        font-size: 1.2rem;
+    }
+    .Find-us {
+        align-items: center;
+    }
+    .contenido-header p{
+        padding-right: 1.2rem;
+    }
+    .copy{
+        font-size: 1rem;
+    }
 }
