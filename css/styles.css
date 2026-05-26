@@ -458,3 +458,24 @@ input::placeholder {
         font-size: 1rem;
     }
 }
+
+/* About Us */
+section.aboutus{
+    padding-top: 10rem;
+}
+
+.aboutUs{
+    display: flex;
+    flex-direction: wrap;
+}
+
+.aboutUs div {
+    flex-basis: calc(50%);
+}
+
+.aboutUs .contenido-texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5rem;
+}
