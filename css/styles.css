@@ -479,3 +479,76 @@ section.aboutus{
     justify-content: center;
     margin-right: 5rem;
 }
+
+.contenido-texto h3{
+    color: var(--primary);
+    font-size: 3.2rem;
+    text-transform: uppercase;
+}
+
+/* Contact Us */
+.background {
+    background-image: url(../img/portada.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.background h1 {
+    text-align: center;
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 3.8rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: .8;
+}
+
+.formulario input[type="text"], .formulario textarea[name="message"]{
+    border-color: var(--card);
+    border-radius: .5rem;
+    border: 1px;
+    margin-bottom: 4rem;
+    width: 70%;
+    background-color: var(--primary);
+    color: white;
+}
+
+.formulario input[type="text"] {
+    padding: 1rem;
+}
+
+.formulario textarea[name="message"] {
+    padding-bottom: 10rem;
+}
+
+input[type="text"]::placeholder, textarea[name="message"]::placeholder{
+    color: var(--secondary);
+    opacity: 1;
+}
+
+.boton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#btnEnviar {
+    background-color: var(--coral);
+    width: 100%;
+    border: 0px;
+    padding: 1.5rem 8rem 1.5rem 8rem;
+    margin-bottom: 2rem;
+
+    color: var(--white);
+    font-weight: bold;
+    text-transform: uppercase;
+}
